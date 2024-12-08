@@ -67,7 +67,8 @@ Untuk "membuka" HASH, penyerang harus menggunakan:
    - Namun, teknik modern seperti "salt" membuat metode ini tidak efektif
 
 3. **Layanan Online Dekripsi**
-   - Menggunakan Layanan Situs seperti
+
+     Menggunakan Layanan Situs seperti
      
     ```bash
      https://crackstation.net/
