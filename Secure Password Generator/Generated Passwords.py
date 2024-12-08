@@ -16,14 +16,14 @@ class PasswordVaultManager:
         Args:
             vault_name (str): Nama vault untuk identifikasi
         """
-        # Konfigurasi direktori
+        # konfigurasi direktori
         self.base_dir = os.path.join('password_vaults', vault_name)
         os.makedirs(self.base_dir, exist_ok=True)
         
-        # Setup logging
+        # setup logging
         self._setup_logging()
         
-        # Inisialisasi database
+        #inisialisasi database
         self.db_path = os.path.join(self.base_dir, 'password_vault.db')
         self._init_database()
     
@@ -183,7 +183,7 @@ class PasswordVaultManager:
         Returns:
             Dictionary dengsn detalil analisis
         """
-        # Perhitungan karakter
+        # oerhitungan karakter
         details = {
             'total_length': len(password),
             'uppercase_count': sum(1 for c in password if c.isupper()),
@@ -192,11 +192,11 @@ class PasswordVaultManager:
             'special_char_count': sum(1 for c in password if c in string.punctuation)
         }
         
-        # Perhitungan entropi
+        # perhitungan entropi
         unique_chars = len(set(password))
         details['entropy'] = len(password) * (unique_chars / len(password)) ** 2
         
-        # Skor kompleksitas
+        # skor kompleksitas
         complexity_score = sum([
             details['total_length'] >= 12,
             details['uppercase_count'] > 0,
@@ -227,16 +227,16 @@ class PasswordVaultManager:
             ID password yang diisimpan
         """
         try:
-            # Generate salt
+            # generate salt nya
             salt = secrets.token_hex(16)
             
-            # Hash password dengan salt
+            # hash password pakai salt
             password_hash = hashlib.sha256((password + salt).encode()).hexdigest()
             
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
                 
-                # Simpan password
+                # menyimpn password
                 cursor.execute('''
                 INSERT INTO passwords (
                     name, password_hash, salt, 
@@ -261,7 +261,7 @@ class PasswordVaultManager:
                 
                 password_id = cursor.lastrowid
                 
-                # Catat riwayat
+                #catat riwayat
                 cursor.execute('''
                 INSERT INTO password_history (password_id, action) 
                 VALUES (?, ?)
