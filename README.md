@@ -1,13 +1,13 @@
 # 🔐 SecurePass Generator
 
 ## 🚀 Deskripsi Proyek
-Sebuah alat canggih untuk menghasilkan password kuat dan mengamankan data sensitif Anda. Proyek ini menawarkan solusi komprehensif dalam pembuatan dan pengamanan kredensial dengan teknologi enkripsi mutakhir.
+Sebuah alat untuk menghasilkan password kuat dan mengamankan data sensitif ksmu. Proyek ini memberikan solusi dalam pembuatan passwords dan pengamanan dengan teknologi enkripsi.
 
 ## ✨ Fitur Unggulan
 - **Password Generator Cerdas**
-  - Pembangkitan password acak yang sangat aman
+  - Pembuatan password acak yang sangat aman
   - Kontrol penuh atas kompleksitas password
-  - Algoritma pembangkitan yang terjamin unik
+  - Algoritma pembuatan yang baik (tidak eror)
 
 - **Metode Enkripsi Tingkat Lanjut**
   - Dukungan multiple algoritma hash
@@ -15,17 +15,28 @@ Sebuah alat canggih untuk menghasilkan password kuat dan mengamankan data sensit
   - Analisis kekuatan password
   - Perlindungan terhadap serangan brute force
 
+# Review
+![Revuew](assets/review.png)
+# Database
+![Revuew](assets/database.png)
+# Database Vault
+![Revuew](assets/vault.png)
+
+
 ## 🛠 Teknologi
 - Algoritma Enkripsi: 
   - SHA-256
   - BCrypt
   - PBKDF2
-- Bahasa Pemrograman: Python/JavaScript/dll (sesuaikan)
+- Bahasa Pemrograman: Python
 
 ## 🔒 Keamanan
 - Tidak menyimpan password mentah
 - Enkripsi end-to-end
 - Perlindungan data maksimal
+
+
+
 
 
 
