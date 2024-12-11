@@ -10,12 +10,7 @@ from typing import Dict, List, Any
 
 class PasswordVaultManager:
     def __init__(self, vault_name: str = 'default_vault'):
-        """
-        Inisialisasi Vault Password dengan manajemen yang lebih canggih
-        
-        Args:
-            vault_name (str): Nama vault untuk identifikasi
-        """
+
         # konfigurasi direktori
         self.base_dir = os.path.join('password_vaults', vault_name)
         os.makedirs(self.base_dir, exist_ok=True)
@@ -28,7 +23,7 @@ class PasswordVaultManager:
         self._init_database()
     
     def _setup_logging(self):
-        """Konfigurasi logging yang lebih detail"""
+
         log_dir = os.path.join(self.base_dir, 'logs')
         os.makedirs(log_dir, exist_ok=True)
         
@@ -42,9 +37,7 @@ class PasswordVaultManager:
         )
     
     def _init_database(self):
-        """
-        Inisialisasi struktur database yang komprehensif
-        """
+
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -102,12 +95,7 @@ class PasswordVaultManager:
         max_length: int = 24,
         complexity: str = 'balanced'
     ) -> List[Dict[str, Any]]:
-        """
-        menghasilkan password dengan analisis mendalam
-        
-        Returns:
-            List dari dictionary password dengan detail lengkap
-        """
+
         generated_passwords = []
         
         # Definisi kompleksitas
@@ -177,12 +165,7 @@ class PasswordVaultManager:
         return generated_passwords
     
     def _analyze_password(self, password: str) -> Dict[str, Any]:
-        """
-        Analisis password
-        
-        Returns:
-            Dictionary dengsn detalil analisis
-        """
+
         # oerhitungan karakter
         details = {
             'total_length': len(password),
@@ -220,12 +203,7 @@ class PasswordVaultManager:
         return details
     
     def _save_password(self, name: str, password: str, details: Dict[str, Any]) -> int:
-        """
-        Simpan password ke database dengan enkripsi HASH
-        
-        Returns:
-            ID password yang diisimpan
-        """
+
         try:
             # generate salt nya
             salt = secrets.token_hex(16)
@@ -278,9 +256,7 @@ class PasswordVaultManager:
             return -1
     
     def export_vault(self, format: str = 'json'):
-        """
-        Ekspor seluruh vault kedalam format
-        """
+
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
